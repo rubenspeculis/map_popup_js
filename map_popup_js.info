@@ -1,0 +1,4 @@
+name = Map Popup JS
+description = Popup for OL in external div
+core = 7.x
+package = MDBA
