@@ -26,8 +26,21 @@
 
     // Hide Div by Default
     $('#map-info').hide()
+    $('#toolset').css('width', '82px');
+
+    $('body').on('click', '.toggleIt', function(event){
+      event.preventDefault();
+      $('#toolset').animate({width: '82px'}, 'fast', function(){
+        $('#map-info').hide();
+        $('#map-info').html('');
+      });
+    });
 
     mapPort.on('click', 'image', function(event){
+
+
+      $('#map-info').hide('fast');
+//      $('.olPopup').css('z-index', '-100000000'); 
 
       var pupup = $('#popup_contentDiv');
 
@@ -37,6 +50,9 @@
 
       if(typeof(popup.contentHTML) != 'undefined') {
         popup = popup.contentHTML;
+
+        console.log(popup);
+
         $('#map-info').hide('fast');
         if( $('#popup_contentDiv').find('.openlayers-tooltip-name').html() != null ) {
           var featureName = '<h3 class="featureName">' + $('#popup_contentDiv').find('.openlayers-tooltip-name').html() + '</h3>';
@@ -44,14 +60,8 @@
         if( $('#popup_contentDiv').find('.openlayers-tooltip-description').html() != null ){
           var featureDesc = '<div class="featureDesc">' + $('#popup_contentDiv').find('.openlayers-tooltip-description').html() + '</div>';
         }
-        $('#map-info').html('<a href="#" class="toggleIt">X</a>').append(featureName).append(featureDesc);
-        $('.toggleIt').on('click', function(event){
-          event.preventDefault();
-          $('#toolset').animate({width: '82px'}, 'fast', function(){
-            $('#map-info').hide();
-            $('#map-info').html('');
-          });
-        });
+        $('#map-info').html('').html('<a href="#" class="toggleIt">X</a>').append(featureName).append(featureDesc);
+
         $('#toolset').animate({width: '432px'}, 'fast', function(){
           $('#map-info').css('height', topOffset); 
           $('#map-info').show();
@@ -59,10 +69,15 @@
       }
     });
 
+    /** Cluster Action */
     mapPort.on('click', 'circle', function(event){
 
+      $('#map-info').hide('fast');
+      $('#toolset').css('width', '82px');
+      $('.olPopup').css('z-index', '-100000000'); 
       var pupup = $('#popup_contentDiv');
 
+      popup = popup.contentHTML;
       if(typeof(popup.contentHTML) != 'undefined') {
         popup = popup.contentHTML;
 
