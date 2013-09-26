@@ -50,7 +50,6 @@
       if(typeof(popup.contentHTML) != 'undefined') {
         popup = popup.contentHTML;
 
-        console.log(popup);
 
         $('#map-info').hide('fast');
         if( $('#popup_contentDiv').find('.openlayers-tooltip-name').html() != null ) {
