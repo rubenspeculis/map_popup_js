@@ -40,7 +40,6 @@
 
 
       $('#map-info').hide('fast');
-//      $('.olPopup').css('z-index', '-100000000'); 
 
       var pupup = $('#popup_contentDiv');
 
@@ -67,6 +66,7 @@
           $('#map-info').show();
         });
       }
+      $('.olPopup').css('z-index', '-100000000'); 
     });
 
     /** Cluster Action */
