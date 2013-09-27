@@ -4,7 +4,9 @@ function map_popup_js_init(){
   $cssPie_path = drupal_get_path('module', 'map_popup_js').'/js/CSSpie.js';
   $js_path = drupal_get_path('module', 'map_popup_js').'/js/popitup.js';
   $css_path = drupal_get_path('module', 'map_popup_js').'/css/map_popup_js.css';
+  $css_path2 = drupal_get_path('module', 'map_popup_js').'/css/popup.css';
   drupal_add_css($css_path);
+  drupal_add_css($css_path2);
   drupal_add_js($cssPie_path);
   drupal_add_js($js_path);
   drupal_add_library('system', 'ui');
