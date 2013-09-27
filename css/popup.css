@@ -110,9 +110,9 @@ div.view-id-site span.views-label {
 }
 .storage-link a,
 .weir-link a {
-  color: #fff;
+  color: #fff !Important;
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: none !Important;
 }
 
 sup {
