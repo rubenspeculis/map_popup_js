@@ -22,11 +22,19 @@
     $('.baseLayersDiv').remove();
     $('.dataLbl').remove();
 
-    mapPort.find('#toolset').append("<div id='map-info'></div>");
+    var helpText = '<h3 class="featureName">Welcome</h3>';
+    helpText += '<div class="featureDesc welcomeInst">';
+    helpText += '<p>The following are simple instructions to help get you acquainted with the new site:</p>';
+    helpText += '<ul><li>Click on an icon in the bar to the left to show them on the map. From top to bottom they are: Storages, Weirs and River Gauges.</li>';
+    helpText += '<li>Once the icon is shown on the map click on it to display information about that site. You will then have options to click through to more data and information.</li>';
+    helpText += '</ul>';
+    helpText += '<p>We would appreciate your feedback on what we have done so far - to help us develop the prototype further.  The results will be used to help us improve our service.</p></div>';
+
+    mapPort.find('#toolset').append("<div id='map-info'>"+helpText+"</div>");
 
     // Hide Div by Default
-    $('#map-info').hide()
-    $('#toolset').css('width', '82px');
+    //$('#map-info').hide()
+    //$('#toolset').css('width', '82px');
 
     $('body').on('click', '.toggleIt', function(event){
       event.preventDefault();
@@ -60,7 +68,7 @@
         }
         $('#map-info').html('').html('<a href="#" class="toggleIt">X</a>').append(featureName).append(featureDesc);
 
-        $('#toolset').animate({width: '432px'}, 'fast', function(){
+        $('#toolset').animate({width: '362px'}, 'fast', function(){
           $('#map-info').css('height', topOffset); 
           $('#map-info').show();
         });
@@ -94,6 +102,7 @@
 
     });
 
+    $('body').append('<!--[if IE]><style>.flyout { margin-top: -59px; }</style><!--<![endif]-->');
     $('#block-block-2').on('hover', function(event){
       labelShower();
     });
