@@ -1,5 +1,7 @@
+/* exported createPie */
 function createPie(pieName,pieSize,baseColor,numberOfSlices,percentages,colors){
-	var sizeNum = parseFloat(pieSize.replace("px",""));
+  "use strict";
+  var sizeNum = parseFloat(pieSize.replace("px",""));
 	//Pie Container
 	var pieContainer = document.createElement("div");
 	pieContainer.id=pieName;
@@ -35,7 +37,7 @@ function createPie(pieName,pieSize,baseColor,numberOfSlices,percentages,colors){
 		pie.style.position="absolute";
 		pie.style.top="0px"; pie.style.left="0px";
 		pie.style.width = pieSize;
-		pie.style.height = pieSize; 
+		pie.style.height = pieSize;
 		pie.style.webkitBorderRadius = pieSize;
 		pie.style.mozBorderRadius = pieSize;
 		pie.style.borderRadius = pieSize;
@@ -51,7 +53,7 @@ function createPie(pieName,pieSize,baseColor,numberOfSlices,percentages,colors){
 			pie.style.transform="rotate("+degree+"deg)";
 			newSlice.appendChild(pie);
 			//If it's not first slice, then ...
-			if(i!=0){
+			if(i!==0){
 				newSlice.style.webkitTransform="rotate("+beforeDegree+"deg)";
 				newSlice.style.mozTransform="rotate("+beforeDegree+"deg)";
         pie.style.msTransform="rotate("+beforeDegree+"deg)";
@@ -60,7 +62,7 @@ function createPie(pieName,pieSize,baseColor,numberOfSlices,percentages,colors){
 			pieBackground.appendChild(newSlice);
 			beforeDegree += degree;
 		}
-		else{	
+		else{
 			newSlice.style.clip="rect(0px,"+(sizeNum)+"px,"+(sizeNum)+"px,"+((sizeNum-100)/2)+"px)";
 			newSlice.style.webkitTransform="rotate("+beforeDegree+"deg)";
 			newSlice.style.mozTransform="rotate("+beforeDegree+"deg)";
@@ -72,7 +74,7 @@ function createPie(pieName,pieSize,baseColor,numberOfSlices,percentages,colors){
 			pie.style.transform="rotate(180deg)";
 			newSlice.appendChild(pie);
 			pieBackground.appendChild(newSlice);
-			var newSlice = document.createElement("div");
+			newSlice = document.createElement("div");
 			newSlice.style.position="absolute";
 			newSlice.style.top="0px"; newSlice.style.left="0px";
 			newSlice.style.width=pieSize;
@@ -81,33 +83,37 @@ function createPie(pieName,pieSize,baseColor,numberOfSlices,percentages,colors){
 			newSlice.style.mozBorderRadius=pieSize;
 			newSlice.style.borderRadius=pieSize;
 			newSlice.style.clip="rect(0px,"+sizeNum+"px,"+sizeNum+"px,"+((sizeNum)/2)+"px)";
-			if(i!=0)
+			if(i!==0) {
 				beforeDegree = beforeDegree-1;
+      }
 			newSlice.style.webkitTransform="rotate("+(180+beforeDegree)+"deg)";
 			newSlice.style.mozTransform="rotate("+(180+beforeDegree)+"deg)";
       newSlice.style.msTransform="rotate("+(180+beforeDegree)+"deg)";
 			newSlice.style.transform="rotate("+(180+beforeDegree)+"deg)";
-			if(i!=0)
+			if(i!==0) {
 				beforeDegree = beforeDegree+1;
-			var pie = document.createElement("div");
+      }
+			pie = document.createElement("div");
 			pie.style.backgroundColor=colors[i];
 			pie.style.position="absolute";
 			pie.style.top="0px"; pie.style.left="0px";
 			pie.style.width = pieSize;
-			pie.style.height = pieSize; 
+			pie.style.height = pieSize;
 			pie.style.webkitBorderRadius = pieSize;
 			pie.style.mozBorderRadius = pieSize;
 			pie.style.borderRadius = pieSize;
 			pie.style.clip = "rect(0px, "+((sizeNum)/2)+"px, "+sizeNum+"px, 0px)";
 			degree = parseFloat(((piePercentage-50)*180)/50);
-			if(i!=0)
+			if(i!==0) {
 				degree=degree+1;
+      }
 			pie.style.webkitTransform="rotate("+degree+"deg)";
 			pie.style.mozTransform="rotate("+degree+"deg)";
       pie.style.msTransform="rotate("+degree+"deg)";
 			pie.style.transform="rotate("+degree+"deg)";
-			if(i!=0)
+			if(i!==0) {
 				degree = degree-1;
+      }
 			newSlice.appendChild(pie);
 			pieBackground.appendChild(newSlice);
 			beforeDegree += (180+degree);
@@ -129,5 +135,5 @@ function createPie(pieName,pieSize,baseColor,numberOfSlices,percentages,colors){
   pieForeground.style.left='10px';
 	//Append Background to Container
 	pieContainer.appendChild(pieForeground);
-	return pieContainer;	
+	return pieContainer;
 }

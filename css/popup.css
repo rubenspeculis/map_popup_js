@@ -1,7 +1,6 @@
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
-
 /* Map Popup for /basin_map */
 div.view-id-site span.views-label {
   float: left;
@@ -36,7 +35,7 @@ div.view-id-site span.views-label {
 
 /* Mapping Styles */
 .openlayers-popup table {
-  margin: 0px;
+  margin: 0;
 }
 
 .openlayers-popup tr:hover td {
@@ -60,21 +59,32 @@ div.view-id-site span.views-label {
 .view-electrical-conductivity-composite-data,
 .view-daily-discharge-composite-view {
   background: #666;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   display: block;
   float: left;
   height: 100px;
-  margin: 0 8px;
+  margin: 0;
   padding: 6px 4px;
   text-align: center;
-  width: 26%;
+  width: 74px;
 }
+.view-rainfall-composite-data {
+  clear:both;
+}
+.view-water-temp-composite-view,
+.view-electrical-conductivity-composite-data,
+.view-daily-discharge-composite-view {
+  margin-left: 7px;
+}
+
+.featureDesc .view-id-daily_discharge_composite_view {
+  margin-top: -40px !Important;
+}
+
 .composite-storage {
   float: left;
   height: 100px;
-  margin-top: -30px;
+  margin-top: -20px;
+  margin-bottom: 7px;
 }
 .widget-title {
   display: block;
@@ -90,23 +100,28 @@ div.view-id-site span.views-label {
 
 .rainfall-value,
 .temp-value,
-.elec-value {
+.elec-value,
+.discharge-value {
   bottom: -8px;
   display: block;
+  font-size: 10px;
   height: 20px;
   position: relative;
 }
-
+.discharge-value {
+  margin-left: -6px;
+  width: 72px;
+}
 .storage-link,
 .weir-link {
-  background: #666;
+  background: #3376a3;
   clear: both;
   float: left;
   margin: 18px -10px;
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
-  width: 330px;
+  width: 260px;
 }
 .storage-link a,
 .weir-link a {
@@ -146,10 +161,12 @@ sup {
   bottom: 0px;
   clear: both;
   float: left;
+  height: 20px;
   margin: 0 -10px;
+  overflow: hidden;
   padding: 10px;
   position: absolute;
-  width: 330px;
+  width: 260px;
 }
 
 .bottom span.date-display-single {
@@ -159,18 +176,17 @@ sup {
 /** Weir **/
 .weir-water-level {
   background: url(../images/weir_water_level_162x72.png) no-repeat center center #666;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   float: left;
-  margin: -20px 8px 10px 8px;
-  padding: 10px;
-  width: 184px;
+  height: 100px;
+  margin: -18px 0 7px 0;
+  padding: 10px 3px;
+  width: 165px;
 }
+
 
 .weir-water-level .downstream {
   float: left;
-  left: 12px;
+  left: 3px;
   position: relative;
   text-align: center;
   top: 48px;
@@ -180,28 +196,26 @@ sup {
 .weir-water-level .upstream {
   float: right;
   position: relative;
-  right: 14px;
+  right: 1px;
   text-align: right;
   top: 48px;
 }
 
-.weir-water-level,
 .view-daily-discharge-composite-view {
-  height: 110px;
-}
-
-.view-daily-discharge-composite-view {
+  font-size: 10px;
   padding: 10px;
-  width: 74px;
-  margin-top: -20px;
+  width: 62px;
+  margin-top: -38px;
 }
 
 .weir-discharge .widget-title,
 .weir-water-level-title {
-  font-size: 16px;
+  font-size: 12px;
   position: relative;
   top: -8px;
+
 }
+span.mld { font-size: 12px; }
 
 .storage-temp .widget-title,
 .storage-elec .widget-title {
@@ -209,10 +223,10 @@ sup {
   line-height: 10px;
 }
 
-
+.widget-title-off { font-size: 12px; height: 32px; }
 
 .discharge-icon {
-  background: url(../images/weir_water_discharge_44x53.png) no-repeat center center;
+  background: url(../images/weir_water_discharge_44x53.png) no-repeat center 1px;
   display: block;
   height: 53px;
   position: relative;
@@ -241,27 +255,21 @@ sup {
   position: relative;
   top: -7px;
 }
-
-.rainfall-icon-off {
-  background: url(../images/rainfall-off.png) no-repeat center center;
+.discharge-icon-off, .rainfall-icon-off, .temp-icon-off, .elec-icon-off {
+  background: url(../images/none.png) no-repeat center center;
   display: block;
-  height: 44px;
+  height: 48px;
   position: relative;
+  top: 7px;
+}
+.rainfall-icon-off {
   top: -7px;
 }
 .temp-icon-off {
-  background: url(../images/water-temp-off.png) no-repeat center center;
-  display: block;
-  height: 42px;
-  position: relative;
   top: -5px;
 }
 .elec-icon-off {
-  background: url(../images/conductivity-off.png) no-repeat center center;
-  display: block;
-  height: 44px;
-  position: relative;
-  top: -7px;
+  top: -5px;
 }
 
 /* River Gauses */
@@ -275,16 +283,18 @@ sup {
   width: 100%;
 }
 
+.river-gauge-flow .widget-title,
+.river-gauge-height .widget-title {
+  height: auto;
+}
 
 .flow-wrapper {
   background: url(../images/river_gauge_61x93.png) no-repeat 10px center #666;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   float: left;
-  margin: -20px 8px 10px 8px;
+  height: 100px;
+  margin: -20px 0 7px 0;
   padding: 10px;
-  width: 294px;
+  width: 151px;
 }
 .flow-wrapper .view-river-flow-composite-data {
   margin-left: 70px;
@@ -292,7 +302,7 @@ sup {
 
 .flow-wrapper .flow-value,
 .flow-wrapper .height-value {
-  font-size: 30px;
+  font-size: 16px;
   line-height: 0px;
 }
 .site-information {
@@ -302,26 +312,48 @@ sup {
   width: 100%;
 }
 .site-information h3{
-  font-family: arial, helvetica, sans-serif;
+  font-family: Verdana, arial, helvetica, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   line-height: 0px;
 }
-.site-information a {
-  color: white;
+.site-information a:link {
+  color: white !Important;
   text-decoration: none;
 }
+
+.view-alert-composite-view a { color: #fff !important; } 
+
+#data-alerts .view-alert-composite-view a { color: #3376a3 !important; } 
+.view-alert-composite-view h3 { font-family: Verdana, Helvetica, Arial, sans-serif; } 
 
 .hidden { display: none; }
 
 .thumbnails-images { float:left !Important; }
 
 /* Layout */
-.storage-summary,
-.weir-summary {
+.left {
+  background: #eeece8;
   float: left;
-  width: 330px;
+  width: 260px;
 }
+.storage-summary,
+.weir-summary,
+.gauge-summary {
+  background: #eeece8;
+  color: white;
+  float: left;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  padding: 8px;
+  width: 260px;
+}
+
+.left h2 {
+  color: black;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-weight: normal;
+}
+
 .storage-summary .view-empty span.discharge-value,
 .storage-summary .view-empty span.rainfall-value,
 .storage-summary .view-empty span.temp-value,
@@ -333,6 +365,8 @@ sup {
   font-size: 11px !important;
 }
 
+.view-id-daily_discharge_composite_view { margin-top: -20px !important; }
+
 .weir-summary div.view-rainfall-composite-data {
   clear:both;
 }
@@ -341,9 +375,315 @@ sup {
   clear:both;
   width: 100%;
 }
-
-.data {
+.site-images { float:left; margin-left: 8px; width: 260px; }
+.site-images ul li {
+  float:left;
+  margin: 0px;
+  padding: 0px;
+  padding-right: 8px;
+}
+#data, .data {
   float: right;
-  width: 600px;
+  width: 634px;
 }
 
+#data table tr td,
+.data table tr td {
+  height: 10px;
+}
+
+#data table tr td p,
+.data table tr td p {
+  margin: 0px;
+}
+
+#map-info {
+  background: #3f3d3e;
+  color: #fff;
+  float: left;
+  font-size: 0.9em;
+  width: 280px;
+  z-index: 100000;
+}
+
+#map-info .featureName {
+  background: #3376a3;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+#map-info .featureName a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#map-info .featureDesc {
+  padding: 10px;
+}
+
+#map-info .toggleIt {
+  background: #f8f7f2;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  padding: 0 4px;
+  text-decoration: none !Important;
+}
+
+#popup_GroupDiv {
+  display: none;
+}
+
+#layers-selector {
+  background: #3376a3;
+  float: left;
+  font-size: 0.9em;
+  padding: 0px 0px 0 0px;
+  width: 82px;
+  z-index: 100000;
+}
+
+#toolset {
+  float: right;
+  position: relative;
+}
+
+#block-block-2 {
+  display: none;
+}
+
+#block-block-2 input[type=checkbox] {
+  display: none;
+}
+
+#block-block-2 .labelSpan {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+#block-block-2 input[type=checkbox][name=Alerts] + label {
+  background: url(../images/icon-alert-32px.png) no-repeat center center;
+  height: 81px;
+  width: 64px;
+  display: inline-block;
+  padding: 0;
+}
+
+#block-block-2 input[type=checkbox][name=Alerts]:checked + label{
+  background: url(../images/icon-alert-64px.png) no-repeat;
+  height: 81px;
+  width: 64px;
+  display: inline-block;
+  padding: 0;
+}
+
+#block-block-2 input[type=checkbox][name=Storages] + label {
+  background: url(../images/icon-storage-32px.png) no-repeat center center;
+  height: 81px;
+  width: 64px;
+  display: inline-block;
+  padding: 0;
+}
+
+#block-block-2 input[type=checkbox][name=Storages]:checked + label{
+  background: url(../images/icon-storage-64px.png) no-repeat;
+  height: 81px;
+  width: 64px;
+  display: inline-block;
+  padding: 0;
+}
+
+#block-block-2 input[type=checkbox][name='Weirs'] + label {
+  background: url(../images/icon-wier-32px.png) no-repeat center center;
+  height: 81px;
+  width: 64px;
+  display: inline-block;
+  padding: 0;
+}
+
+#block-block-2 input[type=checkbox][name='Weirs']:checked + label{
+  background: url(../images/icon-wier-64px.png) no-repeat;
+  height: 81px;
+  width: 64px;
+  display: inline-block;
+  padding: 0;
+}
+
+#block-block-2 input[type=checkbox][name='River Gauges'] + label {
+  background: url(../images/icon-flow-32px.png) no-repeat center center;
+  height: 81px;
+  width: 64px;
+  display: inline-block;
+  padding: 0;
+}
+
+#block-block-2 input[type=checkbox][name='River Gauges']:checked + label{
+  background: url(../images/icon-flow-64px.png) no-repeat;
+  height: 81px;
+  width: 64px;
+  display: inline-block;
+  padding: 0;
+}
+
+.flyout {
+  background: #3376a3;
+  color: #fff;
+  float: right;
+  font-size: 26px;
+  margin-right: 82px;
+  margin-top: -76px;
+  padding: 10px;
+  text-indent: 0;
+  text-transform: uppercase;
+  width: 220px;
+}
+
+.composite-storage {
+  background: #666;
+  color: #fff;
+  float: left;
+  padding: 10px 0;
+  width: 171px;
+}
+
+.percentage {
+  float:left;
+}
+
+.percentageInner {
+  color: #000;
+  font-size: 200%;
+  font-weight: bold;
+  left: 10%;
+  position: absolute;
+  top: 30%;
+}
+.labelStor {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -5px;
+}
+.composite-storage .numbers {
+  height: 60px;
+  margin-top: 12px;
+  padding: 5px;
+}
+.current-storage {
+  border-bottom: 1px solid #fff;
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  height: 20px;
+  padding-bottom: 7px;
+  width: 76px;
+}
+.capacity-storage {
+  float: left;
+  font-size: 16px;
+  height: 20px;
+  text-align: right;
+  width: 76px;
+}
+.composite-storage .unit {
+  font-size: 14px;
+}
+.composite-storage .current-level,
+.composite-storage .total-capacity {
+  font-size: 8px;
+  font-weight: normal;
+  position: relative;
+  text-transform: uppercase;
+  top: -30px;
+}
+.timestamp-storage {
+  clear: both;
+  display: none;
+}
+.bom-link {
+  background: #e5b50d;
+  margin: -3px -10px;
+  padding: 7px 10px;
+  position: relative;
+  top: -27px;
+}
+.bom-link a {
+  color: #000 !Important;
+  text-decoration: none !Important;
+}
+
+.weir-panel-discharge {
+  margin-top: 20px;
+}
+.weir-discharge .widget-title {
+  height: 16px;
+}
+.storage-icon,
+.weir-icon,
+.gauge-icon {
+  background: url(../images/icon-storage-32px.png) no-repeat 0 10px;
+  float: left;
+  width: 32px;
+  height: 62px;
+  padding: 0 6px 0 0;
+}
+
+.weir-icon {
+  background: url(../images/icon-wier-32px.png) no-repeat 0 10px;
+}
+.gauge-icon {
+  background: url(../images/icon-flow-32px.png) no-repeat 0 10px;
+}
+.storage-name,
+.weir-name,
+.gauge-name {
+  line-height: 15px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.storrage-river,
+.weir-river,
+.gauge-river {
+  font-size: 10px !important;
+  margin-top: 0px;
+}
+
+#tabs { background: #ccc; margin-top: 14px; font-family: Verdana, Helvetica, Arial, sans-serif !Important; font-weight: normal !Important; border: 1px solid #000; height: 27px; }
+
+#tabs span { padding: 2px 8px 3px 8px !Important; border-right: solid 1px #000 !Important;  }
+
+.activeTab {  background: #3376a3;  color: #fff;}
+
+.weir-top-detail { float: left; margin: 8px; width: 920px; }
+.weir-top-icon { background: url(../images/icon-wier-64px.png) no-repeat; float: left; height: 64px; width: 64px; }
+.top-title-wrap { float:left; width: 686px; }
+.weir-top-front-name { font-size: 42px; }
+.weir-top-sub-title { font-size: 22px; }
+.weir-top-detail .bom-link { width: 200px; float:right; margin-top: -35px; }
+
+.storage-top-detail { float: left; margin: 8px; width: 920px; }
+.storage-top-icon { background: url(../images/icon-storage-64px.png) no-repeat; float: left; height: 64px; width: 64px; }
+.storage-top-front-name { font-size: 42px; }
+.storage-top-sub-title { font-size: 22px; }
+.storage-top-detail .bom-link { width: 200px; float:right; margin-top: -35px; }
+
+.gauge-top-detail { float: left; margin: 8px; width: 920px; }
+.gauge-top-icon { background: url(../images/icon-flow-64px.png) no-repeat; float: left; height: 64px; width: 64px; }
+.gauge-top-front-name { font-size: 42px; }
+.gauge-top-sub-title { font-size: 22px; }
+.gauge-top-detail .bom-link { width: 200px; float:right; margin-top: -35px; }
+
+div.featureDesc ul li {
+  margin-left: 20px;
+}
+
+#data h1, #data h2, #data h3, #data h4 { font-family: Verdana, Helvetica, Arial, sans-serif; }
+
+.welcomeInst { height: 697px; }
+
+#block-block-4 { float: left; margin-left: 304px; }
+block-block-4 h2 { font-family: Verdana, Helvetica, Arial, sans-serif; font-weight: normal; }

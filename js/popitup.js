@@ -1,9 +1,10 @@
 /**
  * JS test file
  */
+/* global jQuery:false */
 
 (function ($) {
-
+  "use strict";
   $(document).ready(function(){
 
     // Define mapPort and Append the new div
@@ -44,66 +45,36 @@
       });
     });
 
-    mapPort.on('click', 'image', function(event){
-
+    mapPort.on('click touchstart', 'image', function(){
 
       $('#map-info').hide('fast');
-
-      var pupup = $('#popup_contentDiv');
 
       if($('#popup_contentDiv').is(':visible')){
         $('#popup_contentDiv').parent().parent().hide();
       }
 
-      if(typeof(popup.contentHTML) != 'undefined') {
-        popup = popup.contentHTML;
-
-
-        $('#map-info').hide('fast');
-        if( $('#popup_contentDiv').find('.openlayers-tooltip-name').html() != null ) {
-          var featureName = '<h3 class="featureName">' + $('#popup_contentDiv').find('.openlayers-tooltip-name').html() + '</h3>';
-        }
-        if( $('#popup_contentDiv').find('.openlayers-tooltip-description').html() != null ){
-          var featureDesc = '<div class="featureDesc">' + $('#popup_contentDiv').find('.openlayers-tooltip-description').html() + '</div>';
-        }
-        $('#map-info').html('').html('<a href="#" class="toggleIt">X</a>').append(featureName).append(featureDesc);
-
-        $('#toolset').animate({width: '362px'}, 'fast', function(){
-          $('#map-info').css('height', topOffset); 
-          $('#map-info').show();
-        });
-      }
-      $('.olPopup').css('z-index', '-100000000'); 
-    });
-
-    /** Cluster Action */
-    mapPort.on('click', 'circle', function(event){
+      var featureName;
+      var featureDesc;
 
       $('#map-info').hide('fast');
-      $('#toolset').css('width', '82px');
-      $('.olPopup').css('z-index', '-100000000'); 
-      var pupup = $('#popup_contentDiv');
-
-      popup = popup.contentHTML;
-      if(typeof(popup.contentHTML) != 'undefined') {
-        popup = popup.contentHTML;
-
-        $('#map-info').hide('fast');
-
-        var clusters = $('#popup_contentDiv').children('div');
-
-        if($('#popup_contentDiv').is(':visible')){
-          $('#popup_contentDiv').parent().parent().hide();
-        }
+      if( $('#popup_contentDiv').find('.openlayers-tooltip-name').html() !== null ) {
+        featureName = '<h3 class="featureName">' + $('#popup_contentDiv').find('.openlayers-tooltip-name').html() + '</h3>';
       }
+      if( $('#popup_contentDiv').find('.openlayers-tooltip-description').html() !== null ){
+        featureDesc = '<div class="featureDesc">' + $('#popup_contentDiv').find('.openlayers-tooltip-description').html() + '</div>';
+      }
+      $('#map-info').html('').append(featureName).append(featureDesc);
 
-      var ol = $('.openlayers-map').data('openlayers').openlayers;
-      ol.zoomIn();
+      $('#toolset').animate({width: '362px'}, 'fast', function(){
+        $('#map-info').css('height', topOffset);
+        $('#map-info').show();
+      });
 
+      $('.olPopup').css('z-index', '-100000000');
     });
 
     $('body').append('<!--[if IE]><style>.flyout { margin-top: -59px; }</style><!--<![endif]-->');
-    $('#block-block-2').on('hover', function(event){
+    $('#block-block-2').on('hover', function(){
       labelShower();
     });
 
@@ -115,7 +86,7 @@
         var className = flyoutText.toLowerCase().replace(/ /g, '-');
         var flyoutDiv = '<div class="flyout '+className+'">'+flyoutText+'</div>';
         var countFlyOut = $('.'+className).length;
-        if(countFlyOut == 0 ){
+        if(countFlyOut === 0 ){
           $(this).after(flyoutDiv);
         }
         $('.flyout').hide();
@@ -127,7 +98,6 @@
         });
     });
   }
-
 
 })(jQuery);
 
